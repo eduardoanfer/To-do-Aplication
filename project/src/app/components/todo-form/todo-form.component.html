@@ -1,0 +1,29 @@
+<!-- sempre que for criar um formulário reativo, é necessário importar o ReactiveFormsModule no módulo do componente
+e tambem lembre-se que cada dado e retirado daqui mesmo do todo-form e do angular material -->
+<form [formGroup]="todosForm" (ngSubmit)="headleCreateNewTodo()">
+  <section class="todo-form-card">
+    <h1 class="todo_form_title">Adicionar Tarefa</h1>
+    <mat-form-field color="accent"
+    appearance="outline"
+    class="todo_form_input">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" placeholder="Digite o título da tarefa">
+    </mat-form-field>
+    
+    <mat-form-field color="accent"
+    appearance="outline"
+    class="todo_form_input">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput formControlName="description" placeholder="Digite a descrição da tarefa"></textarea>
+    </mat-form-field>
+    
+    <div class="todo_form_actions">
+      <button mat-raised-button class="todo_form_sucess_btn" type="submit" [disabled]="todosForm.invalid">
+        Adicionar
+      </button>
+      <button mat-raised-button color="warn" type="button" (click)="handleCloseModal()">
+        Cancelar
+      </button>
+    </div>
+  </section>
+</form>
